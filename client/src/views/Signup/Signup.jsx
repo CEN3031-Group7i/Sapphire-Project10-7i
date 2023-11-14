@@ -61,12 +61,25 @@ export default function Signup() {
       .then((response) => {
         setUserSession(response.data.jwt, JSON.stringify(response.data.user));
         setLoading(false);
-        navigate('/teacherlogin');
+        navigate('/settings');
       })
       .catch(error => {
         setLoading(false);
-        message.error(error.response?.data?.message[0]?.messages[0]?.message || 'Signup failed.');
+        // Log the error for debugging purposes
+        console.error('Signup Error:', error);
+      
+        // Check if the error has a response and a specific message structure
+        const detailedMessage = error.response?.data?.message[0]?.messages[0]?.message;
+      
+        // Provide a more user-friendly error message
+        if (detailedMessage) {
+          message.error(`Signup failed: ${detailedMessage}`);
+        } else {
+          // Fallback error message if the structure is not as expected
+          message.error('Signup failed. Please check your information and try again.');
+        }
       });
+      
   };
 
   return (
