@@ -33,3 +33,24 @@ export const registerUser = async (body) => {
   const response = await axios.post(`${server}/auth/local/register`, body);
   return response;
 };
+
+export const deleteUser = async (userId) => {
+  try {
+    // Include the Authorization header with the JWT token
+    const config = {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    };
+
+    // Perform the DELETE request to the API endpoint
+    const response = await axios.delete(`${server}/users/${userId}`, config);
+
+    // Handle the response here, if needed
+    console.log('User deleted successfully', response.data);
+
+    return response;
+  } catch (error) {
+    // Log or handle the error appropriately
+    console.error('Error deleting user:', error);
+    throw error;
+  }
+}
