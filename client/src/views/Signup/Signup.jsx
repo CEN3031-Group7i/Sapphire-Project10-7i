@@ -83,12 +83,13 @@ export default function Signup() {
   
       // Set user session and navigate
       setUserSession(token, JSON.stringify(registrationResponse.data.user));
-      if(selectedRole === '3') { //If student, navigate to join code page
-        navigate('/classroom');
-      }
-      else {
+      // if(selectedRole === student) { //If student, navigate to join code page
+      //   navigate('/join-code');
+      // }
+      // else {
+      // navigate('/settings');
+      // }
       navigate('/settings');
-      }
   
     } catch (error) {
       setLoading(false);

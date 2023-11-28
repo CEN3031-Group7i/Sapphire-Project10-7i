@@ -21,6 +21,7 @@ import ForgetPassword from './views/TeacherLogin/ForgetPassword';
 import ResetPassword from './views/TeacherLogin/ResetPassword';
 import Signup from './views/Signup/Signup';
 import TeacherLogin from './views/TeacherLogin/TeacherLogin';
+import EditAccount from './views/EditAccount/EditAccount';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path='/login' element={<StudentLogin />} />
         <Route path='/replay/:saveID' element={<Replay />} />
         <Route path='/sandbox' element={<BlocklyPage isSandbox={true} />} />
+        <Route path='/edit-account' element={<EditAccount />} />
         <Route
           path='/report'
           element={
@@ -80,6 +82,14 @@ const App = () => {
           element={
             <PrivateRoute>
               <Settings />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/edit-account'
+          element={
+            <PrivateRoute>
+              <EditAccount />
             </PrivateRoute>
           }
         />

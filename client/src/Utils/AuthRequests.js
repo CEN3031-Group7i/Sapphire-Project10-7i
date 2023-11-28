@@ -80,3 +80,42 @@ export const updateUserRole = async (userId, newRoleId, token) => {
     throw error;
   }
 };
+
+//Return User data
+export const getCurrentUserData = async () => {
+  try {
+    const token = getToken();
+    if (!token) {
+      throw new Error("No token found");
+    }
+    const response = await axios.get(`${server}/users/me`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching current user data:", error);
+    throw error;
+  }
+};
+
+// Update the user data
+export const updateUser = async (userId, updateData, token) => {
+  try {
+    // Include the Authorization header with the JWT token
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    // Perform the PUT request to the API endpoint to update the user
+    const response = await axios.put(`${server}/users/${userId}`, updateData, config);
+
+    // Handle the response here, if needed
+    console.log('User updated successfully', response.data);
+
+    return response.data; // Return the updated user data
+  } catch (error) {
+    // Log or handle the error appropriately
+    console.error('Error updating user:', error);
+    throw error;
+  }
+};

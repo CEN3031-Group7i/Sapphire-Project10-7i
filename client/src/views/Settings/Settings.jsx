@@ -1,12 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavBar from "../../components/NavBar/NavBar";
-import { deleteUser, removeUserSession } from '../../Utils/AuthRequests';
+import { deleteUser, removeUserSession, getCurrentUserData } from '../../Utils/AuthRequests';
 import "./Settings.less";
 import { useNavigate } from 'react-router-dom';
 
 export default function Settings(props) {
   const [error, setError] = useState(""); // State for error handling
   const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState({ username: '', email: '' });
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userData = await getCurrentUserData();
+        setCurrentUser({ username: userData.username, email: userData.email });
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        setError('Failed to load user data.');
+      }
+    };
+
+    fetchUserData();
+  }, []);
+  
+  const handleEditAccount = () => {
+    navigate('/edit-account');
+  };
 
   const handleDeleteAccount = async () => {
     const confirmDelete = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
@@ -26,20 +45,36 @@ export default function Settings(props) {
         // Handle any errors here, such as showing an error message
         console.error('Error deleting account:', error);
         setError("Failed to delete account. Please try again later.");
-      }
+      } 
     }
+    
   };
 
   return (
-    <div className="container nav-padding">
+    <div className="container nav-padding setting">
       <NavBar />
       <div id="about-content-container">
         <h1 id="title">Settings</h1>
         <div id="divider" />
+        <form>
+          <input
+            className='username'
+            type='text'
+            value={currentUser.username}
+            disabled
+          />
+          <input
+            className='email'
+            type='email'
+            value={currentUser.email}
+            disabled
+          />
+        </form>
         <div className="button-container" id="container button-container">
           <input
             type='button'
-            value='Edit Password'
+            value='Edit Account'
+            onClick={handleEditAccount}
           />
           <input
             type='button'
@@ -55,5 +90,7 @@ export default function Settings(props) {
         {error && <p className="error-message">{error}</p>} {/* Display error message if any */}
       </div>
     </div>
+  
+    
   );
 }
