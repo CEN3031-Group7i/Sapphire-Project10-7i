@@ -28,8 +28,8 @@ export default function Signup() {
 
   const handleSignup = (e) => {
     e.preventDefault(); // Prevent the form from submitting traditionally
-    const usernameRegex = /^[a-zA-Z0-9_]+$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const usernameRegex = /^[a-zA-Z0-9_]+$/; //Only allow letters, numbers, and underscores
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //Basic email regex
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,}$/;
     if(password.value !== confirmPassword.value) {
       message.error('Passwords do not match.');
