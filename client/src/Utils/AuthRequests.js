@@ -54,3 +54,29 @@ export const deleteUser = async (userId) => {
     throw error;
   }
 }
+
+export const updateUserRole = async (userId, newRoleId, token) => {
+  try {
+    // Include the Authorization header with the JWT token
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    // Prepare the data for updating the user's role
+    const updateData = {
+      role: newRoleId, // The new role ID that you want to set for the user
+    };
+
+    // Perform the PUT request to the API endpoint to update the user's role
+    const response = await axios.put(`${server}/users/${userId}`, updateData, config);
+
+    // Handle the response here, if needed
+    console.log('User role updated successfully', response.data);
+
+    return response;
+  } catch (error) {
+    // Log or handle the error appropriately
+    console.error('Error updating user role:', error);
+    throw error;
+  }
+};
