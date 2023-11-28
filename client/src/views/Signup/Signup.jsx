@@ -91,7 +91,7 @@ export default function Signup() {
           onSubmit={handleSignup} // Form submission is now handled by the handleSignup function
         >
           <div id='box-title'>User Signup</div>
-          <input type='text' {...username} placeholder='Username' autoComplete='username' />
+          <input class='username-input' type='text' {...username} placeholder='Username' autoComplete='username' />
           <input type='email' {...email} placeholder='Email' autoComplete='email' />
           <input type='password' {...password} placeholder='Password' autoComplete='new-password' />
           <input type='password' {...confirmPassword} placeholder='Confirm Password' autoComplete='new-password' />

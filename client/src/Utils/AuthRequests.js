@@ -1,3 +1,4 @@
+import { useResolvedPath } from 'react-router-dom';
 import { server } from './hosts';
 import { setUserState, getCurrUser } from './userState';
 
@@ -53,4 +54,11 @@ export const deleteUser = async (userId) => {
     console.error('Error deleting user:', error);
     throw error;
   }
+}
+
+//return User data
+export const getCurrentUser = async () => {
+  const user = await axios.get(`${server}/users/me`); 
+  
+  return user;
 }
