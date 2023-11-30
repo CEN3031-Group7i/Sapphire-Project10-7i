@@ -22,6 +22,7 @@ import ResetPassword from './views/TeacherLogin/ResetPassword';
 import Signup from './views/Signup/Signup';
 import TeacherLogin from './views/TeacherLogin/TeacherLogin';
 import EditAccount from './views/EditAccount/EditAccount';
+import MergeAccount from './views/MergeAccount/MergeAccount';
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
         <Route path='/replay/:saveID' element={<Replay />} />
         <Route path='/sandbox' element={<BlocklyPage isSandbox={true} />} />
         <Route path='/edit-account' element={<EditAccount />} />
+        <Route path='/merge-account' element={<MergeAccount />} />
         <Route
           path='/report'
           element={

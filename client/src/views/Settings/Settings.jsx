@@ -27,6 +27,10 @@ export default function Settings(props) {
     navigate('/edit-account');
   };
 
+  const handleMergeAccount = () => {
+    navigate('/merge-account');
+  };
+
   const handleDeleteAccount = async () => {
     const confirmDelete = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
     if (confirmDelete) {
@@ -57,14 +61,18 @@ export default function Settings(props) {
         <h1 id="title">Settings</h1>
         <div id="divider" />
         <form>
+          <label for="username">Username:</label>
           <input
             className='username'
+            name='username'
             type='text'
             value={currentUser.username}
             disabled
           />
+          <label for="email">Email:</label>
           <input
             className='email'
+            name='email'
             type='email'
             value={currentUser.email}
             disabled
@@ -79,6 +87,7 @@ export default function Settings(props) {
           <input
             type='button'
             value='Merge Account'
+            onClick={handleMergeAccount}
           />
         </div>
         <input 
