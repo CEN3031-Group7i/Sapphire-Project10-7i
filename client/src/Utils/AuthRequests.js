@@ -119,3 +119,24 @@ export const updateUser = async (userId, updateData, token) => {
     throw error;
   }
 };
+
+
+// Fetch all student objects
+export const getAllStudents = async () => {
+  try {
+    const token = getToken();
+    if (!token) {
+      throw new Error("No token found");
+    }
+
+    const response = await axios.get(`${server}/students`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+
+    // Assuming the API returns an array of student objects
+    return response.data; 
+  } catch (error) {
+    console.error("Error fetching students:", error);
+    throw error;
+  }
+};

@@ -48,14 +48,18 @@ input[type='button'] {
 
 form {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  max-width: 250px;
+  margin: 0 auto;
+  //justify-content: space-between;
 }
 
 input.username,
 input.email {
   //display: block;
-  background: none;
+  background: lightgray;
   margin: 20px 15px;
+  margin-top: 0;
   border: 2px solid;
   border-color: #colors[secondary];
   padding: 14px 10px;
