@@ -1,112 +1,109 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
-import { getCurrentUserData, updateUser, setUserSession } from '../../Utils/AuthRequests';
+import { getCurrentUserData, updateUser, setUserSession, getAllStudents } from '../../Utils/AuthRequests';
 import './MergeAccount.less';
 import { useNavigate } from 'react-router-dom';
 import { message } from 'antd';
 
-
 export default function MergeAccount() {
-    const [currentUser, setCurrentUser] = useState({ username: '', email: '' });
+    const [students, setStudents] = useState([]); // New state for storing students
     const [loading, setLoading] = useState(false);
+    const [selectedStudentId, setSelectedStudentId] = useState("");
+    const [selectedStudentEmoji, setSelectedStudentEmoji] = useState("");
     const navigate = useNavigate();
 
-
     useEffect(() => {
-        const fetchUserData = async () => { //fetch user data
-          try {
-            const userData = await getCurrentUserData();
-            setCurrentUser({
-              username: userData.username,
-              email: userData.email,
-            });
-          } catch (error) {
-            console.error('Error fetching user data:', error);
-          }
+
+        const fetchStudents = async () => {
+            try {
+                const studentData = await getAllStudents();
+                setStudents(studentData); // Update the state with fetched student data
+            } catch (error) {
+                console.error('Error fetching students:', error);
+            }
         };
-    
-        fetchUserData();
-      }, []);
 
-    const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setCurrentUser({ ...currentUser, [name]: value });
+        fetchStudents(); // Fetch students when the component mounts
+    }, []);
+
+    const handleMergeAccount = async () => {
+      // Ensure that selectedStudentId is not an empty string
+      if (!selectedStudentId) {
+        message.error('Please select a student.');
+        return;
+      }
+    
+      const selectedStudent = students.find(student => student.id.toString() === selectedStudentId);
+    
+      // Log the selected student for debugging
+      console.log('Selected student:', selectedStudent);
+    
+      if (!selectedStudent) {
+        message.error('Selected student ID does not exist in the data.');
+        return;
+      }
+    
+      if (selectedStudent.character !== selectedStudentEmoji) {
+        message.error('Student name and emoji do not match.');
+        return;
+      }
+    
+      // If they match, proceed with the merge logic
+      setLoading(true);
+      try {
+        // Perform merge logic here
+        // For now, we'll just log success and redirect
+        // In the future, we'll need to call the API to perform the merge
+        console.log('Accounts would be merged here.');
+        message.success('Accounts merged successfully.');
+        navigate('/settings');
+      } catch (error) {
+        console.error('Error merging accounts:', error);
+        message.error('Failed to merge accounts.');
+      } finally {
+        setLoading(false);
+      }
     };
-
-
-    const handleSaveChanges = async () => {
-        const usernameRegex = /^[a-zA-Z0-9_]+$/; //Only allow letters, numbers, and underscores
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //Basic email regex
-
-        // Check if the current state passes the regex checks
-        if (!emailRegex.test(currentUser.email)) {
-            message.error('Invalid email format');
-            return;
-        } else if (!usernameRegex.test(currentUser.username)) {
-            message.error('Invalid username format');
-            return;
-        }
-        setLoading(true);
-        try {
-          const token = sessionStorage.getItem('token'); // Retrieve the token from session storage
-          const user = JSON.parse(sessionStorage.getItem('user')); // Retrieve the user data from session storage
-          const userId = user.id; // Get the user's ID
     
-          const updateData = {
-            username: currentUser.username,
-            email: currentUser.email,
-          };
-    
-          const updatedUser = await updateUser(userId, updateData, token);
-          
-          // Update the user session with new data
-          setUserSession(token, JSON.stringify(updatedUser));
-    
-         
-          navigate('/settings');
-        } catch (error) {
-          console.error('Error saving changes:', error);
-          // Handle error, e.g., set an error message state and display it
-        } finally {
-          setLoading(false);
-        }
-      };
-
 
     return (
         <div className='container nav-padding merge'>
-          <NavBar />
-          <div id='content-wrapper'>
-            <div id='box'>
-              <div id='box-title'>Merge Account</div>
-              <label for="username">Account To Be Merged:</label>
-              <input
-                type='text'
-                name='username'
-                class='username'
-                placeholder='Username'
-                autoComplete='username'
-                value={currentUser.username}
-                onChange={handleInputChange}
-                disabled
-              />
-              <form>
-                <select name="studentName" id="studentName">
-                    <option value="" id="header" selected disabled hidden>Student Name</option>
-                </select>
-                <select name="studentEmoji" id="studentEmoji">
-                    <option value="" id="header" selected disabled hidden>Student Emoji</option>
-                </select>
-              </form>
-              
-              <input
-                type='button'
-                value={loading ? 'Merging...' : 'Merge Changes'}
-                disabled={loading}
-                onClick={handleSaveChanges}
-                />
+            <NavBar />
+            <div id='content-wrapper'>
+                <div id='box'>
+                    <div id='box-title'>Merge Account</div>
+                    <form>
+                      <select 
+                        name="studentName" 
+                        id="studentName" 
+                        value={selectedStudentId} // bind the value to the state
+                        onChange={e => setSelectedStudentId(e.target.value)}
+                      >
+                        <option value="" disabled hidden>Student Name</option>
+                        {students.map(student => (
+                          <option key={student.id} value={student.id}>{student.name}</option>
+                        ))}
+                      </select>
+                      <select 
+                        name="studentEmoji" 
+                        id="studentEmoji" 
+                        value={selectedStudentEmoji} // bind the value to the state
+                        onChange={e => setSelectedStudentEmoji(e.target.value)}
+                      >
+                        <option value="" disabled hidden>Student Emoji</option>
+                        {students.map(student => (
+                          <option key={student.id} value={student.character}>{student.character}</option>
+                        ))}
+                      </select>
+                      <input
+                        type='button'
+                        value={loading ? 'Merging...' : 'Merge Account'}
+                        disabled={loading}
+                        onClick={handleMergeAccount}
+                      />
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-      );
+    );
 }
