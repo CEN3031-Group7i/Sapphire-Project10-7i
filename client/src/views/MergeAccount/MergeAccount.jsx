@@ -72,6 +72,7 @@ export default function MergeAccount() {
             <div id='content-wrapper'>
                 <div id='box'>
                     <div id='box-title'>Merge Account</div>
+                    <div id='box-subtitle'>Select the account you want to merge with your current account.</div>
                     <form>
                       <select 
                         name="studentName" 
