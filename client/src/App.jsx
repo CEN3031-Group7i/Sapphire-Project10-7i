@@ -23,6 +23,7 @@ import Signup from './views/Signup/Signup';
 import TeacherLogin from './views/TeacherLogin/TeacherLogin';
 import EditAccount from './views/EditAccount/EditAccount';
 import MergeAccount from './views/MergeAccount/MergeAccount';
+import CreateClassroom from './views/CreateClassroom/CreateClassroom';
 
 const App = () => {
   return (
@@ -132,6 +133,14 @@ const App = () => {
           element={
             <PrivateRoute>
               <ContentCreator />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/create-classroom'
+          element={
+            <PrivateRoute>
+              <CreateClassroom />
             </PrivateRoute>
           }
         />
