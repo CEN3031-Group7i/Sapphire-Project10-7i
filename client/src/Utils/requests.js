@@ -76,6 +76,14 @@ export const getAllStudents = async () =>
     error: 'Students could not be retrieved.',
   });
 
+  export const getSchools = async () =>
+  makeRequest({
+    method: GET,
+    path: `${server}/schools`,
+    auth: true,
+    error: 'Schools could not be retrieved.',
+  });
+
 export const getActivityToolboxAll = async () =>
   makeRequest({
     method: GET,
@@ -119,6 +127,30 @@ export const getClassroom = async (id) =>
     auth: true,
     error: 'Classroom information could not be retrieved',
   });
+
+export const addClassroom = async (name, school, grade) =>
+  makeRequest({
+    method: POST,
+    path: `${server}/classrooms`,
+    data: {
+      name: name,
+      school: school,
+      grade: grade,
+    },
+    auth: true,
+    error: 'Failed to create classroom',
+  });
+
+  export const setClassroom = async (id, mentorIds) =>
+    makeRequest({
+      method: PUT,
+      path: `${server}/classrooms/${id}`,
+      data: {
+        mentors: [...mentorIds]
+      },
+      auth: true,
+      error: 'Failed to update classroom',
+    })
 
 export const getStudentClassroom = async () =>
   makeRequest({
