@@ -11,11 +11,12 @@
     "AccountInfo": "/account",
     "ContentCreatorDashboard": "/ccdashboard",
     "ResearcherDashboard": "/report",
-    "BugReport": "/bugreport"
+    "BugReport": "/bugreport",
+    "CreateClassroom": "/create-classroom"
   },
   "users": {
     "DefaultUser": ["Home", "TeacherLogin", "Signup", "Sandbox", "About"],
-    "Mentor": ["Dashboard", "Settings", "AccountInfo", "SignOut", "Sandbox", "BugReport"],
+    "Mentor": ["Dashboard", "Settings", "AccountInfo", "SignOut", "Sandbox", "BugReport", "CreateClassroom"],
     "Student": ["SignOut"],
     "ContentCreator": [
       "ContentCreatorDashboard",
