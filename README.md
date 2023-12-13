@@ -33,6 +33,17 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
 - Create Classroom
 
 # How to run the project locally
+1. Follow the [client](/client#setup) setup
+2. Run `yarn start` from `/client`
+
+`casmm-server-dev`, `casmm-compile-dev`, `casmm-db-dev`, and `casmm-compile_queue-dev`
+
+1. Install [docker](https://docs.docker.com/get-docker/)
+
+2. Run `docker compose up` from `/`
+
+   > Grant permission to the **scripts** and **server** directories if you are prompted
+3. The links to access both the application, as well as the admin page should appear in the console once docker compose up cas completed. 
 
 # How to update database and server connections
 
