@@ -24,8 +24,10 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
 ![Merge](https://i.postimg.cc/FFj8Lrph/Merge-Account.jpg)
 
 - Create Classroom
-  - Ability to create a classroom with a unique name
+  - Ability to create a classroom and assign it a name
   - Ability to select the proper school and grade associated with the classroom
+    - School and grade must be assigned to the class
+  - Automatically ties the user (teacher) that creates the classroom to the class
  
   ![CreateClassroom](https://i.postimg.cc/SN54dYpH/Create-Classroom.jpg)
 
