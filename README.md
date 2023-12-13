@@ -13,6 +13,7 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
   - Text boxes which display the user's current username and email
   - Ability to edit username and email by clicking the "Edit Account" button
   - Ability to merge two accounts by clicking the "Merge Account" button
+    - Requires user to select proper name and emoji
   - Ability to delete the account which is logged in by clicking the "Delete Account" button
   - All changes are reflected on the backend
 
