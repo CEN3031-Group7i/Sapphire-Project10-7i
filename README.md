@@ -30,6 +30,15 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
   ![SignupToolbar](https://i.postimg.cc/WzH5Pyjb/Signup-Toolbar.jpg)
   ![SettingsToolbar](https://i.postimg.cc/nrz3gJyP/Settings-Toolbar.jpg)
 
+# How to run the project locally
+
+# How to update database and server connections
+
+# Outstanding Work
+
+# Built Upon
+- No code was borrowed and no additional APIs were used
+
 # CaSMM
 
 > Computation and Science Modeling through Making
