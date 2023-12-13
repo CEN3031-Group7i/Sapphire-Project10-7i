@@ -17,7 +17,8 @@ Features implemented:
   - All changes are reflected on the backend
 
 - Page Linking
-
+  - If logged in, a "Settings" option is added to the toolbar in the top right which connects to the account settings page
+  - If not logged in, a "Signup" option is added to the toolbar in the top right which connects to the account creation page
 
 # CaSMM
 
