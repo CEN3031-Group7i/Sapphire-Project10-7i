@@ -25,7 +25,10 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
 
 - Page Linking
   - If logged in, a "Settings" option is added to the toolbar in the top right which connects to the account settings page
-  - If not logged in, a "Signup" option is added to the toolbar in the top right which connects to the account creation page
+  - If not logged in, a "User Signup" option is added to the toolbar in the top right which connects to the account creation page
+ 
+  ![SignupToolbar](https://i.postimg.cc/WzH5Pyjb/Signup-Toolbar.jpg)
+  ![SettingsToolbar](https://i.postimg.cc/nrz3gJyP/Settings-Toolbar.jpg)
 
 # CaSMM
 
