@@ -3,7 +3,7 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
 # Features implemented:
 - Account Creation
   - Page created for a user to create a new account
-  - Text boxes added for user to imput their username, password, and email
+  - Text boxes added for user to input their username, password, and email
   - Regex for email checking
   - Password confirmation/validation checking
   - Button for user to confirm their account creation
