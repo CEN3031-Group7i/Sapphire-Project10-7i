@@ -9,6 +9,8 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
   - Button for user to confirm their account creation
   - Account is created in the backend on Strapi
 
+![Signup](https://i.postimg.cc/X7LPssth/Signup.jpg)
+
 - Settings
   - Text boxes which display the user's current username and email
   - Ability to edit username and email by clicking the "Edit Account" button
@@ -16,6 +18,10 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
     - Requires user to select proper name and emoji
   - Ability to delete the account which is logged in by clicking the "Delete Account" button
   - All changes are reflected on the backend
+
+![Settings](https://i.postimg.cc/X7LPssth/Signup.jpg)
+![Edit](https://i.postimg.cc/4yb0kPyY/Edit-Account.jpg)
+![Merge](https://i.postimg.cc/FFj8Lrph/Merge-Account.jpg)
 
 - Page Linking
   - If logged in, a "Settings" option is added to the toolbar in the top right which connects to the account settings page
