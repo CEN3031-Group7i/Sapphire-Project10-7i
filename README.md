@@ -48,6 +48,8 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
 # How to update database and server connections
 
 # Outstanding Work
+- Functionality of the merge account feature
+- Functionality of the create classroom page
 
 # Built Upon
 - No code was borrowed and no additional APIs were used
