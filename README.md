@@ -23,14 +23,20 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
 ![Edit](https://i.postimg.cc/4yb0kPyY/Edit-Account.jpg)
 ![Merge](https://i.postimg.cc/FFj8Lrph/Merge-Account.jpg)
 
+- Create Classroom
+  - Ability to create a classroom with a unique name
+  - Ability to select the proper school and grade associated with the classroom
+ 
+  ![CreateClassroom](https://i.postimg.cc/SN54dYpH/Create-Classroom.jpg)
+
 - Page Linking
   - If logged in, a "Settings" option is added to the toolbar in the top right which connects to the account settings page
+  - If logged in on a proper type of account, a "Create Classroom" opttion is added to the toolbar in the top right which connects to the create classroom page
   - If not logged in, a "User Signup" option is added to the toolbar in the top right which connects to the account creation page
  
   ![SignupToolbar](https://i.postimg.cc/WzH5Pyjb/Signup-Toolbar.jpg)
   ![SettingsToolbar](https://i.postimg.cc/nrz3gJyP/Settings-Toolbar.jpg)
-
-- Create Classroom
+  ![CreateClassroomToolbar](https://i.postimg.cc/y8ZHb61x/Create-Classroom-Toolbar.jpg)
 
 # How to run the project locally
 1. Follow the [client](/client#setup) setup
