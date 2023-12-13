@@ -1,6 +1,6 @@
 Hello, we are team 7i working on Project 10, Authentification for Personal and Organizational Accounts!
 
-Features implemented:
+# Features implemented:
 - Account Creation
   - Page created for a user to create a new account
   - Text boxes added for user to imput their username, password, and email
