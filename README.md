@@ -10,7 +10,11 @@ Features implemented:
   - Account is created in the backend on Strapi
 
 - Settings
-
+  - Text boxes which display the user's current username and email
+  - Ability to edit username and email by clicking the "Edit Account" button
+  - Ability to merge two accounts by clicking the "Merge Account" button
+  - Ability to delete the account which is logged in by clicking the "Delete Account" button
+  - All changes are reflected on the backend
 
 - Page Linking
 
