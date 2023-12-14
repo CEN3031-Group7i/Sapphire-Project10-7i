@@ -54,6 +54,9 @@ Hello, we are team 7i working on Project 10, Authentification for Personal and O
 3. The links to access both the application, as well as the admin page should appear in the console once docker compose up cas completed. 
 
 # How to update database and server connections
+-To update the database and other settings in the Strapi admin, look here (https://github.com/DavidMagda/CaSMM_fork_2023/blob/develop/scripts/readme.md).
+-After you created the new dump file replace the old dump file in your file directory.
+-If successful the database settings should be saved remotely.
 
 # Outstanding Work
 - Functionality of the merge account feature
